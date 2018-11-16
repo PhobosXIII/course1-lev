@@ -32,6 +32,13 @@ public class ProjectsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        List<Project> projects = AppDatabase.getInstance(this).projectDao().getAll();
+        adapter.update(projects);
+    }
+
     private void initList() {
         RecyclerView rvPersons = findViewById(R.id.rvProjects);
         rvPersons.setHasFixedSize(true);
