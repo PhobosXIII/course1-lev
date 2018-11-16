@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddProjectActivity extends AppCompatActivity {
 
+    ImageView ivPicture;
     DataGenerator generator = new DataGenerator();
     String picture = "";
 
@@ -25,9 +26,9 @@ public class AddProjectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_project);
 
-        ImageView ivPicture = findViewById(R.id.ivPicture);
-        loadImage(ivPicture);
-        ivPicture.setOnClickListener(view -> loadImage(ivPicture));
+        ivPicture = findViewById(R.id.ivPicture);
+        loadImage();
+        ivPicture.setOnClickListener(view -> loadImage());
     }
 
     @Override
@@ -46,13 +47,13 @@ public class AddProjectActivity extends AppCompatActivity {
         }
     }
 
-    private void loadImage(ImageView view) {
+    private void loadImage() {
         picture = generator.getPicture();
         Picasso.get().load(picture)
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
                 .fit()
                 .centerCrop()
-                .into(view);
+                .into(ivPicture);
     }
 }

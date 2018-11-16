@@ -33,7 +33,7 @@ public class ProjectsActivity extends AppCompatActivity {
     }
 
     private void initList() {
-        RecyclerView rvPersons = findViewById(R.id.rvPersons);
+        RecyclerView rvPersons = findViewById(R.id.rvProjects);
         rvPersons.setHasFixedSize(true);
         rvPersons.setLayoutManager(new LinearLayoutManager(this));
         rvPersons.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
